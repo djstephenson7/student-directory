@@ -4,20 +4,22 @@ def input_students
   students = []
   name = gets.chomp
   while !name.empty? do
-    students << {name: name, cohort: :November}
-    puts "Now we have #{students.count} students"
-    name = gets.chomp
+    if name[0] == "s"
+      students << {name: name, cohort: :November}
+      puts "Now we have #{students.count} students"
+    end
+  name = gets.chomp
   end
   students
 end
 
 def print_header
   puts "The students of Villains Academy"
-  puts "-------------"
+  puts "--------------------------------"
 end
 
 def print(students)
-  students.each.with_index do |student, index|
+  students.map.with_index do |student, index|
     puts "#{index + 1}. #{student[:name]} (#{student[:cohort]} cohort)"
   end
 end
