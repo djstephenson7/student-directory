@@ -4,7 +4,7 @@ def input_students
   students = []
   name = gets.chomp
   until name.empty? do
-    students << {name: name, cohort: :November}
+    students << {name: name, cohort: :November, country_of_birth: :UK}
     puts "Now we have #{students.count} students"
     name = gets.chomp
   end
@@ -18,7 +18,7 @@ end
 
 def print(students)
   students.map.with_index do |student, index|
-    puts "#{index + 1}. #{student[:name]} (#{student[:cohort]} cohort)"
+    puts "#{index + 1}. #{student[:name]} (#{student[:cohort]} cohort) (Country of Birth: #{student [:country_of_birth]})"
   end
 end
 
