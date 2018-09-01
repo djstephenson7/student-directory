@@ -2,20 +2,23 @@ def input_students
   puts "Please enter the names of the students, and then the cohort they're in."
   puts "To finish, just hit return twice"
   students = []
-  cohort = []
   name = gets.chomp
-  puts "Please enter cohort"
-    if !cohort.empty?
-      cohort = gets.chomp.to_sym
-    else
-      cohort = "Remote"
-    end
-  until name.empty? do
+  cohort = gets.chomp.to_sym
+
+  while !name.empty? do
     students << {name: name, cohort: cohort, country_of_birth: :UK}
-    puts "Now we have #{students.count} students"
+    puts "Name"
     name = gets.chomp
     puts "Please enter cohort"
-    cohort = gets.chomp
+    cohort = gets.chomp.to_sym
+    if cohort.empty?
+      cohort = "Remote"
+    end
+    if students.count == 1
+      puts "Now we have #{students.count} student."
+    else
+      puts "Now we have #{students.count} students."
+    end
   end
   students
 end
@@ -32,7 +35,11 @@ def print(students)
 end
 
 def print_footer(students)
-  puts "Overall, we have #{students.count} great students".center(80)
+  if students.count == 1
+    puts "Overall, we have #{students.count} great student.".center(80)
+  else
+  puts "Overall, we have #{students.count} great students.".center(80)
+  end
 end
 
 students = input_students
