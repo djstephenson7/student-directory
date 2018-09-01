@@ -4,7 +4,6 @@ def input_students
   students = []
   name = gets.chomp
   cohort = gets.chomp.to_sym
-
   while !name.empty? do
     students << {name: name, cohort: cohort, country_of_birth: :UK}
     puts "Name"
@@ -36,9 +35,9 @@ end
 
 def print_footer(students)
   if students.count == 1
-    puts "Overall, we have #{students.count} great student.".center(80)
+    puts "Overall, we have #{students.count} great students"[0...-1].center(80)
   else
-  puts "Overall, we have #{students.count} great students.".center(80)
+  puts "Overall, we have #{students.count} great students".center(80)
   end
 end
 
